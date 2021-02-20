@@ -1,0 +1,22 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.recipient {
+	margin-bottom: 10px;
+}
+
+.form label {
+	margin-right: 5px;
+}
+
+.submit {
+	margin-top: 10px;
+}
