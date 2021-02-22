@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import moment from 'moment';
 import styles from './index.module.css';
@@ -7,6 +8,8 @@ const REASONS = ['Nobody was home', "You didn't sign", 'Door was locked'];
 
 const Failure = () => {
 	const [form, setForm] = useState({});
+	const router = useRouter();
+	const { id } = router.query;
 
 	const onChange = (e) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,6 +21,7 @@ const Failure = () => {
 		console.log(form);
 		await axios.put(`${window.location.origin}/api/order`, {
 			...form,
+			orderId: id,
 			failedAt: new Date().toISOString(),
 		});
 	};
