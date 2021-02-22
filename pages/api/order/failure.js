@@ -9,7 +9,7 @@ export default async (req, res) => {
     connection = await oracledb.getConnection({
       user: "JITIAN",
       password: "Logic168",
-      connectString: "192.168.137.1/JITIAN",
+      connectString: "114.33.244.1/JITIAN",
     });
 
     const result = await connection.execute(
