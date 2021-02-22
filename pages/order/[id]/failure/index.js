@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from 'axios';
 import moment from "moment";
 import styles from "./index.module.css";
 
@@ -15,6 +16,10 @@ const Failure = () => {
         e.preventDefault();
 
         console.log(form);
+		await axios.put(`${window.location.origin}/api/order`, {
+			...form,
+			signedAt: new Date().toISOString(),
+		});
     };
 
     return (
